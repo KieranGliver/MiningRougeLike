@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cja4k6lctd5li"]
+
+[ext_resource type="Script" path="res://scripts/mine_tile_map.gd" id="1_uimr0"]
+[ext_resource type="TileSet" uid="uid://bygybb36d6c34" path="res://resources/mine_tile_set.tres" id="2_rwvv6"]
+[ext_resource type="Script" path="res://scripts/treasure_layout.gd" id="2_uvunh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_whwtr"]
+noise_type = 0
+frequency = 0.005
+fractal_gain = 0.1
+fractal_weighted_strength = 1.0
+
+[node name="MineTileMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uimr0")
+grid_size = Vector2(16, 16)
+dirt_noise = SubResource("FastNoiseLite_whwtr")
+
+[node name="BedrockLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_rwvv6")
+
+[node name="TreasureLayer" type="Node2D" parent="."]
+script = ExtResource("2_uvunh")
+
+[node name="DirtLayer" type="TileMapLayer" parent="."]
+visible = false
+tile_set = ExtResource("2_rwvv6")

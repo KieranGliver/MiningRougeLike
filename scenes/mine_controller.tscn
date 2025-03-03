@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://rpa8gcu3khlk"]
+
+[ext_resource type="Script" path="res://scripts/mine_controller.gd" id="1_4hc54"]
+
+[node name="MineController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4hc54")
+
+[node name="GameVBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameMargin" type="MarginContainer" parent="GameVBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="GameMain" type="VBoxContainer" parent="GameVBox/GameMargin"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="GameVBox/GameMargin/GameMain"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="StartButton" type="Button" parent="GameVBox/GameMargin/GameMain"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="MarginContainer" type="MarginContainer" parent="GameVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ToolContainer" type="VBoxContainer" parent="GameVBox/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HammerButton" type="Button" parent="GameVBox/MarginContainer/ToolContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hammer
+"
+
+[node name="PickaxeButton" type="Button" parent="GameVBox/MarginContainer/ToolContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pickaxe
+"
+
+[connection signal="pressed" from="GameVBox/GameMargin/GameMain/StartButton" to="." method="start"]
+[connection signal="pressed" from="GameVBox/MarginContainer/ToolContainer/HammerButton" to="." method="_on_hammer_button_pressed"]
+[connection signal="pressed" from="GameVBox/MarginContainer/ToolContainer/PickaxeButton" to="." method="_on_pickaxe_button_pressed"]

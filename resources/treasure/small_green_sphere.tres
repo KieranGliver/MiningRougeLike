@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Treasure" load_steps=4 format=3 uid="uid://baxuwxwj0lyh5"]
+
+[ext_resource type="Script" path="res://scripts/treasure.gd" id="1_nhep1"]
+[ext_resource type="Texture2D" uid="uid://d4avmen7ogpa3" path="res://Art/bitmap/2x2.png" id="2_d7664"]
+[ext_resource type="Texture2D" uid="uid://bv1mc4hrptoo4" path="res://Art/treasure/Mine_Small_Green_Sphere.png" id="3_obp43"]
+
+[resource]
+script = ExtResource("1_nhep1")
+name = "smallGreenSphere"
+shape = ExtResource("2_d7664")
+sprite = ExtResource("3_obp43")
+score = 1
